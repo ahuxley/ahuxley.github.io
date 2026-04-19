@@ -4,17 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Andrew Huxley | Project Management & Software Development Portfolio</title>
-    <meta name="description" content="Experience-first portfolio for Andrew Huxley, a Computer Science student focused on project management and software development.">
+    <meta name="description" content="Portfolio for Andrew Huxley, a Computer Science student building practical software across frontend, data, and systems projects.">
     <meta name="theme-color" content="#17324d">
     <meta property="og:title" content="Andrew Huxley | Project Management & Software Development Portfolio">
-    <meta property="og:description" content="Computer Science student with hands-on experience in project coordination, software development, and operations.">
+    <meta property="og:description" content="Computer Science student building practical software across frontend, data, and systems projects.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://ahuxley.github.io/">
     <meta property="og:image" content="https://ahuxley.github.io/assets/social-preview.png">
     <meta property="og:image:alt" content="Andrew Huxley portfolio preview">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Andrew Huxley | Project Management & Software Development Portfolio">
-    <meta name="twitter:description" content="Experience-first portfolio focused on project management, software development, and dependable execution.">
+    <meta name="twitter:description" content="Portfolio featuring frontend, data, hardware-connected, and Python systems projects by Andrew Huxley.">
     <meta name="twitter:image" content="https://ahuxley.github.io/assets/social-preview.png">
     <link rel="canonical" href="https://ahuxley.github.io/">
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
@@ -71,10 +71,10 @@
             <div class="hero-about">
                 <div class="section-heading" data-reveal="up">
                     <p class="section-kicker">About</p>
-                    <h1>Internship-ready for project management and software development.</h1>
+                    <h1>Building practical software with a project-first mindset.</h1>
                     <p>
-                        I combine technical build skills with high-accountability operations experience to ship
-                        reliable work, communicate clearly, and contribute fast in PM + SWE environments.
+                        I pair hands-on development work with operations experience, which helps me organize work
+                        clearly, communicate progress, and stay dependable when projects start moving fast.
                     </p>
                     <div class="section-actions hero-actions">
                         <a class="button button-primary" href="assets/Andrew_Huxley_Resume.pdf" target="_blank" rel="noopener noreferrer">View Resume</a>
@@ -86,16 +86,16 @@
                 <div class="about-grid">
                     <article class="story-card" data-reveal="up">
                         <p>
-                            I am a Computer Science student at the University of Michigan-Flint, focused on
-                            early-career PM and software engineering internship roles.
+                            I am a Computer Science student at the University of Michigan-Flint looking for internship
+                            opportunities where I can contribute across product thinking, implementation, and team execution.
                         </p>
                         <p>
-                            My background in insurance operations sharpened process discipline, risk awareness, and
-                            communication across teams and stakeholders.
+                            My background in insurance operations taught me how to work accurately, document decisions,
+                            and keep stakeholders informed in high-accountability environments.
                         </p>
                         <p>
-                            I bring structured planning, strong documentation habits, and hands-on build momentum
-                            across frontend, data pipelines, and systems integration.
+                            That translates well into the way I build today: frontend interfaces, data pipelines,
+                            hardware-connected prototypes, and the supporting workflows around them.
                         </p>
                     </article>
 
@@ -118,10 +118,10 @@
         <section class="section-shell section-stack" id="projects">
             <div class="section-heading" data-reveal="up">
                 <p class="section-kicker">Projects</p>
-                <h2>Project work that shows PM discipline and software execution.</h2>
+                <h2>Selected projects across games, local search, and Python systems.</h2>
                 <p>
-                    These projects highlight planning, implementation, and iteration across hardware integration,
-                    data systems, and user-facing product experiences.
+                    Each project highlights a different kind of work, from gameplay input and hardware integration to
+                    user-facing search experiences and backend ingestion.
                 </p>
             </div>
 
@@ -234,16 +234,17 @@
                     <p class="project-status-pill">Work in Progress</p>
                     <h3>CardMap</h3>
                     <p class="project-summary">
-                        CardMap helps players find local Magic: The Gathering inventory with ZIP or GPS search.
+                        CardMap is the player-facing product layer for finding local Magic: The Gathering inventory by
+                        ZIP code or GPS search.
                     </p>
                     <p class="project-summary">
-                        The product connects ingestion, normalization, and ranked local results across three surfaces:
-                        inventory list, store directory, and map view.
+                        My focus here is the search experience itself: connecting location input, ranking logic, and
+                        three discovery surfaces for comparing nearby stores quickly.
                     </p>
                     <ul class="project-highlights">
-                        <li>Implementing end-to-end flow from inventory ingestion to location-aware search endpoints</li>
+                        <li>Designing the user flow from search input to ranked local inventory results</li>
                         <li>Supports two location inputs (ZIP + GPS) with configurable radius filtering</li>
-                        <li>Delivering three discovery views to speed up local store comparison</li>
+                        <li>Delivering list, directory, and map views to make store comparison faster</li>
                     </ul>
                     <ul class="tag-list project-tags">
                         <li>React</li>
@@ -283,17 +284,17 @@
                     <p class="project-label">Project</p>
                     <h3>CardMap Inventory Scraper</h3>
                     <p class="project-summary">
-                        This Python scraper is the ingestion layer behind CardMap. It collects multi-store inventory,
-                        standardizes fields, and publishes searchable records for the frontend.
+                        This Python scraper is the backend ingestion service behind CardMap. It collects multi-store
+                        inventory, standardizes listings, and prepares searchable records for the app.
                     </p>
                     <p class="project-summary">
-                        It currently supports two source ecosystems (BinderPOS/Shopify and TCGplayer Pro) with
-                        per-store partitioning, retry logic, deduplication, and run-level reporting.
+                        Unlike the main CardMap product work, this project is focused on source compatibility,
+                        normalization rules, concurrency, and run reliability across multiple retailer ecosystems.
                     </p>
                     <ul class="project-highlights">
-                        <li>Integrated two scraper flows into one normalized ingestion pipeline</li>
-                        <li>Applies data-quality checks before writes to Supabase/Postgres</li>
-                        <li>Refreshes the CardMap search surface at the end of every run</li>
+                        <li>Integrated BinderPOS/Shopify and TCGplayer Pro into one normalized ingestion pipeline</li>
+                        <li>Applies data-quality checks and deduplication before writes to Supabase/Postgres</li>
+                        <li>Publishes refreshed search data for the CardMap product after each run</li>
                     </ul>
                     <ul class="tag-list project-tags">
                         <li>Python</li>
@@ -439,10 +440,10 @@
         <section class="section-shell section-stack" id="toolkit">
             <div class="section-heading" data-reveal="up">
                 <p class="section-kicker">Toolkit</p>
-                <h2>Technical and delivery strengths used across my projects.</h2>
+                <h2>Languages, platforms, and working strengths behind the portfolio.</h2>
                 <p>
-                    This toolkit reflects the stack and execution skills I use across current projects:
-                    frontend development, data-platform integration, and reliable delivery workflows.
+                    This toolkit reflects the technologies I use most often along with the habits that help me keep
+                    builds organized and moving.
                 </p>
             </div>
 
@@ -486,8 +487,8 @@
                     </div>
                 </article>
                 <article class="toolkit-card" data-reveal="up">
-                    <p class="toolkit-label">Project management & delivery</p>
-                    <h3>Planning, pipelines, and execution.</h3>
+                    <p class="toolkit-label">Workflow strengths</p>
+                    <h3>Habits that support build quality.</h3>
                     <div class="skill-groups">
                         <div class="skill-group">
                             <p class="skill-level-label">Proficient</p>
@@ -511,11 +512,8 @@
                 <p class="section-kicker">Credentials</p>
                 <h2>Education and certifications.</h2>
                 <p>
-                    Credentials that validate technical foundation, delivery mindset, and internship readiness.
+                    Coursework and certifications that support the technical foundation behind my project work.
                 </p>
-                <div class="section-actions">
-                    <a class="button button-secondary" href="assets/Andrew_Huxley_Resume.pdf" target="_blank" rel="noopener noreferrer">View Resume</a>
-                </div>
             </div>
 
             <div class="credential-grid">
@@ -540,8 +538,8 @@
                     <p class="credential-label">Specialization</p>
                     <h3>University of Colorado Boulder Project Management</h3>
                     <p>
-                        Project Management Specialization focused on planning, prioritization, and delivery across
-                        teams.
+                        Project Management Specialization focused on planning, prioritization, and coordinating work
+                        across teams.
                     </p>
                     <a href="https://www.coursera.org/account/accomplishments/specialization/Y9TQY8ZPUD9B" target="_blank" rel="noopener noreferrer" class="credential-link">View Certificate</a>
                 </article>
@@ -551,9 +549,10 @@
         <section class="section-shell section-stack" id="experience">
             <div class="section-heading" data-reveal="up">
                 <p class="section-kicker">Experience</p>
-                <h2>Experience built in high-accountability environments.</h2>
+                <h2>Professional experience that sharpened how I work.</h2>
                 <p>
-                    Professional roles that strengthened process thinking, communication habits, and dependable execution.
+                    These roles strengthened the habits I now bring into technical work: accuracy, communication,
+                    prioritization, and calm follow-through.
                 </p>
             </div>
 
@@ -564,13 +563,13 @@
                         <p class="experience-period">April 2022 - March 2024</p>
                         <h3>Regional Insurance Specialist</h3>
                         <p>
-                            Analyzed performance data, identified workflow inefficiencies, and helped improve delivery in
-                            a high-accountability environment, contributing to a top 10% regional ranking.
+                            Analyzed performance data, identified workflow issues, and helped improve team results in a
+                            high-accountability environment, contributing to a top 10% regional ranking.
                         </p>
                         <ul class="experience-points">
-                            <li>Used reporting insights to surface process gaps and coach better execution patterns</li>
-                            <li>Led team check-ins and peer training with consistent documentation follow-through</li>
-                            <li>Supported cross-functional compliance and performance coordination</li>
+                            <li>Used reporting insights to surface process gaps and support stronger day-to-day execution</li>
+                            <li>Led team check-ins and peer training with consistent follow-through</li>
+                            <li>Supported compliance work and coordination across teams</li>
                         </ul>
                     </div>
                 </article>
@@ -582,12 +581,12 @@
                         <h3>Insurance Agent</h3>
                         <p>
                             Managed commercial and individual insurance accounts using Salesforce CRM and analytics to
-                            improve risk tracking, documentation quality, and policy compliance.
+                            improve risk tracking, record quality, and policy compliance.
                         </p>
                         <ul class="experience-points">
-                            <li>Used CRM data to identify trends, risks, and process-improvement opportunities</li>
+                            <li>Used CRM data to identify trends, risks, and workflow-improvement opportunities</li>
                             <li>Built strong habits around precise records and accountable communication</li>
-                            <li>Maintained compliance-ready documentation standards</li>
+                            <li>Maintained compliance-ready files across customer accounts</li>
                         </ul>
                     </div>
                 </article>
@@ -604,7 +603,7 @@
                         <ul class="experience-points">
                             <li>Practiced calm execution in time-sensitive, fast-moving shifts</li>
                             <li>Improved team coordination and handoff communication</li>
-                            <li>Developed customer-support instincts that transfer well to technical support roles</li>
+                            <li>Developed customer-support instincts that transfer well to technical and client-facing roles</li>
                         </ul>
                     </div>
                 </article>
@@ -614,9 +613,10 @@
         <section class="section-shell section-stack" id="contact">
             <div class="section-heading" data-reveal="up">
                 <p class="section-kicker">Contact</p>
-                <h2>Reach out about project management or software development opportunities.</h2>
+                <h2>Reach out about internships, projects, or collaboration.</h2>
                 <p>
-                    LinkedIn or the contact form both work well. I typically respond within one business day.
+                    LinkedIn is great for a quick intro, and the form works well for longer notes. I typically respond
+                    within one business day.
                 </p>
             </div>
 
@@ -625,8 +625,8 @@
                     <p class="contact-label">Get in Touch</p>
                     <h3>Let&apos;s start a conversation.</h3>
                     <p>
-                        For internship opportunities, project collaboration, or questions, send a direct message.
-                        I monitor both channels consistently.
+                        If you want to talk about an internship, one of the projects above, or a possible collaboration,
+                        send a message and I&apos;ll get back to you soon.
                     </p>
 
                     <div class="contact-actions contact-channel-actions">
@@ -640,7 +640,7 @@
                         </div>
                         <div class="contact-fact">
                             <dt>Availability</dt>
-                            <dd>Actively interviewing for internships</dd>
+                            <dd>Open to internship conversations</dd>
                         </div>
                     </dl>
                 </div>

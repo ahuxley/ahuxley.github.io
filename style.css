@@ -281,32 +281,26 @@ main {
 .project-feature h3,
 .toolkit-card h3,
 .credential-card h3,
-.experience-body h3,
-.project-card h3 {
+.experience-body h3 {
     margin: 0;
     font-family: "Sora", sans-serif;
     letter-spacing: -0.045em;
 }
 
-.eyebrow,
 .section-kicker,
-.profile-label,
 .toolkit-label,
 .credential-label,
 .experience-meta,
 .metric-label,
 .contact-label,
-.project-label,
-.project-card-type {
+.project-label {
     font-family: "IBM Plex Mono", monospace;
     text-transform: uppercase;
     letter-spacing: 0.11em;
     font-size: 0.72rem;
 }
 
-.eyebrow,
 .section-kicker,
-.profile-label,
 .toolkit-label,
 .credential-label,
 .experience-meta,
@@ -319,8 +313,7 @@ main {
 .credential-card p,
 .story-card p,
 .metric-note,
-.project-summary,
-.project-card-summary {
+.project-summary {
     color: var(--ink-soft);
     line-height: 1.7;
 }
@@ -409,8 +402,7 @@ main {
 .toolkit-card,
 .credential-card,
 .contact-card,
-.project-feature,
-.project-card {
+.project-feature {
     border-radius: var(--radius-xl);
     border: 1px solid rgba(255, 255, 255, 0.72);
     background: var(--surface);
@@ -422,8 +414,7 @@ main {
 .experience-card,
 .toolkit-card,
 .credential-card,
-.contact-card,
-.project-card {
+.contact-card {
     transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
 }
 
@@ -432,8 +423,7 @@ main {
 .experience-card:hover,
 .toolkit-card:hover,
 .credential-card:hover,
-.contact-card:hover,
-.project-card:hover {
+.contact-card:hover {
     transform: translateY(-2px);
     box-shadow: var(--shadow-lg);
     border-color: rgba(24, 40, 60, 0.1);
@@ -830,7 +820,6 @@ main {
 }
 
 .project-highlights,
-.project-card-points,
 .experience-points,
 .tag-list {
     list-style: none;
@@ -839,7 +828,6 @@ main {
 }
 
 .project-highlights li,
-.project-card-points li,
 .experience-points li {
     position: relative;
     padding-left: 1rem;
@@ -848,13 +836,11 @@ main {
 }
 
 .project-highlights li + li,
-.project-card-points li + li,
 .experience-points li + li {
     margin-top: 0.7rem;
 }
 
 .project-highlights li::before,
-.project-card-points li::before,
 .experience-points li::before {
     content: "";
     position: absolute;
@@ -869,7 +855,6 @@ main {
     background: var(--accent);
 }
 
-.project-card-points li::before,
 .experience-points li::before {
     background: var(--teal);
 }
@@ -983,26 +968,6 @@ main {
 
 .contact-card {
     background: rgba(255, 253, 249, 0.94);
-}
-
-.contact-direct-card {
-    display: grid;
-    align-content: start;
-    gap: 0.95rem;
-    padding: 1.75rem;
-    background: linear-gradient(180deg, rgba(255, 254, 251, 0.96), rgba(250, 245, 238, 0.9));
-}
-
-.contact-direct-card h3 {
-    margin: 0.2rem 0 0;
-    font-size: 1.55rem;
-    line-height: 1.2;
-}
-
-.contact-direct-card p {
-    margin: 0;
-    color: var(--ink-soft);
-    max-width: 62ch;
 }
 
 .contact-actions {
@@ -1217,8 +1182,7 @@ main {
     .toolkit-card,
     .credential-card,
     .contact-card,
-    .project-feature,
-    .project-card {
+    .project-feature {
         padding-left: 1.15rem;
         padding-right: 1.15rem;
     }
