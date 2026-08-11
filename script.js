@@ -451,4 +451,34 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+    /* Project Category Filter Tabs */
+    const filterBtns = document.querySelectorAll(".project-filter-btn");
+    const projectCards = document.querySelectorAll(".project-feature");
+
+    if (filterBtns.length && projectCards.length) {
+        filterBtns.forEach((btn) => {
+            btn.addEventListener("click", () => {
+                const filter = btn.getAttribute("data-filter");
+
+                filterBtns.forEach((b) => {
+                    b.classList.remove("is-active");
+                    b.setAttribute("aria-selected", "false");
+                });
+                btn.classList.add("is-active");
+                btn.setAttribute("aria-selected", "true");
+
+                projectCards.forEach((card) => {
+                    const categories = card.getAttribute("data-category") || "";
+                    if (filter === "all" || categories.includes(filter)) {
+                        card.style.display = "";
+                        card.removeAttribute("hidden");
+                    } else {
+                        card.style.display = "none";
+                        card.setAttribute("hidden", "true");
+                    }
+                });
+            });
+        });
+    }
 });
+
