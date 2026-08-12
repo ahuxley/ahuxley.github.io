@@ -79,7 +79,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
         window.addEventListener("resize", () => {
-            if (window.innerWidth > 840) {
+            if (window.innerWidth > 960) {
                 closeMenu();
             }
         });
@@ -350,6 +350,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const updateMessageCharCount = () => {
         if (!messageField || !messageCharCount || !messageMaxLength) {
             return;
+        }
+
+        if (messageField.value.length > messageMaxLength) {
+            messageField.value = messageField.value.slice(0, messageMaxLength);
         }
 
         const currentLength = messageField.value.length;

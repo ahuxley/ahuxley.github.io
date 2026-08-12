@@ -116,6 +116,7 @@ main,
 }
 
 .nav-shell {
+    position: relative;
     max-width: var(--content-max);
     margin: 0 auto;
     min-height: var(--nav-height);
@@ -1089,7 +1090,7 @@ main {
     }
 }
 
-@media (max-width: 840px) {
+@media (max-width: 960px) {
     .site-header {
         padding-top: 0.8rem;
     }
@@ -1098,11 +1099,20 @@ main {
         border-radius: 18px;
         align-items: flex-start;
         flex-wrap: wrap;
+        padding-right: 4.6rem;
     }
 
     .nav-toggle {
         display: inline-flex;
-        margin-left: auto;
+        position: absolute;
+        top: 0.85rem;
+        right: 1.05rem;
+    }
+
+    .nav-social-links {
+        flex-basis: 100%;
+        justify-content: flex-end;
+        margin-left: 0;
     }
 
     .nav-links {
@@ -1388,6 +1398,13 @@ main {
     color: #fff;
     border-color: var(--color-primary-dark);
     transform: translateY(-2px);
+}
+
+@media (max-width: 960px) {
+    .nav-social-link {
+        width: 2.75rem;
+        height: 2.75rem;
+    }
 }
 
 .nav-social-link svg {
