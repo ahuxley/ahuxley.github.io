@@ -1,3 +1,133 @@
+function initIntroPreloader() {
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    let alreadyPlayed = false;
+    try {
+        alreadyPlayed = sessionStorage.getItem("introPlayed") === "1";
+    } catch {
+        alreadyPlayed = false;
+    }
+
+    if (reduceMotion || alreadyPlayed) {
+        try {
+            sessionStorage.setItem("introPlayed", "1");
+        } catch {
+            // Ignore storage failures (e.g. private browsing); the intro simply won't persist.
+        }
+        return;
+    }
+
+    const overlay = document.createElement("div");
+    overlay.id = "intro-preloader";
+    overlay.setAttribute("aria-hidden", "true");
+    overlay.innerHTML = `
+        <p class="intro-kicker" data-intro-kicker><span data-intro-kicker-text>Parsing raw data</span></p>
+        <div class="intro-transform">
+            <pre class="intro-json" data-intro-json>{
+  <span class="intro-json-line intro-json-line--1"><span class="intro-json-key">"first_name"</span>: <span class="intro-json-string">"andrew"</span>,</span>
+  <span class="intro-json-line intro-json-line--2"><span class="intro-json-key">"last_name"</span>: <span class="intro-json-string">"huxley"</span>,</span>
+  <span class="intro-json-line intro-json-line--3"><span class="intro-json-key">"role"</span>: <span class="intro-json-string">"data_analyst"</span>,</span>
+  <span class="intro-json-line intro-json-line--4"><span class="intro-json-key">"status"</span>: <span class="intro-json-string">"<span data-intro-status>raw</span>"</span></span>
+}</pre>
+            <div class="intro-clean" data-intro-clean>
+                <p class="intro-clean-name">Andrew Huxley</p>
+                <p class="intro-clean-role">Data Analyst</p>
+                <span class="intro-underline"></span>
+            </div>
+        </div>
+        <p class="intro-skip-hint" data-intro-skip-hint>Click anywhere to skip</p>
+    `;
+    document.body.appendChild(overlay);
+    document.body.style.overflow = "hidden";
+
+    const statusEl = overlay.querySelector("[data-intro-status]");
+    const statusStates = ["raw", "unvalidated", "buffering"];
+    let statusIndex = 0;
+    let statusInterval = null;
+
+    const timers = [];
+    let finished = false;
+
+    const finish = () => {
+        if (finished) {
+            return;
+        }
+
+        finished = true;
+        if (statusInterval) {
+            window.clearInterval(statusInterval);
+        }
+        timers.forEach((timer) => window.clearTimeout(timer));
+        overlay.classList.add("is-hiding");
+        document.body.style.overflow = "";
+
+        try {
+            sessionStorage.setItem("introPlayed", "1");
+        } catch {
+            // Ignore storage failures; the intro just replays next load.
+        }
+
+        window.setTimeout(() => {
+            overlay.remove();
+        }, 550);
+    };
+
+    overlay.addEventListener("click", finish);
+    window.addEventListener("keydown", finish, { once: true });
+    window.addEventListener("wheel", finish, { once: true, passive: true });
+
+    const jsonEl = overlay.querySelector("[data-intro-json]");
+    const kickerTextEl = overlay.querySelector("[data-intro-kicker-text]");
+
+    const swapKickerText = (text) => {
+        if (!kickerTextEl) {
+            return;
+        }
+        kickerTextEl.style.opacity = "0";
+        window.setTimeout(() => {
+            kickerTextEl.textContent = text;
+            kickerTextEl.style.opacity = "1";
+        }, 200);
+    };
+
+    // "raw" is left static (readable) until the status line has fully faded in
+    // (line 4 finishes revealing at ~1.3s) before cycling starts.
+    timers.push(window.setTimeout(() => {
+        statusInterval = window.setInterval(() => {
+            statusIndex = (statusIndex + 1) % statusStates.length;
+            if (statusEl) {
+                statusEl.textContent = statusStates[statusIndex];
+            }
+        }, 650);
+    }, 1300));
+
+    timers.push(window.setTimeout(() => {
+        if (jsonEl) {
+            jsonEl.classList.add("is-pulsing");
+        }
+    }, 2000));
+
+    timers.push(window.setTimeout(() => {
+        if (jsonEl) {
+            jsonEl.classList.remove("is-pulsing");
+        }
+    }, 2250));
+
+    timers.push(window.setTimeout(() => {
+        if (statusInterval) {
+            window.clearInterval(statusInterval);
+        }
+        if (statusEl) {
+            statusEl.textContent = "resolved";
+        }
+        swapKickerText("Formatting for humans");
+        overlay.classList.add("is-transforming");
+    }, 2300));
+
+    timers.push(window.setTimeout(finish, 3900));
+}
+
+initIntroPreloader();
+
 document.addEventListener("DOMContentLoaded", () => {
     const menuBtn = document.getElementById("mobile-menu-btn");
     const navLinks = document.getElementById("site-menu");
@@ -185,7 +315,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 observer.unobserve(entry.target);
             });
         }, {
-            threshold: 0.18
+            threshold: 0,
+            rootMargin: "0px 0px -12% 0px"
         });
 
         reveals.forEach((element) => revealObserver.observe(element));
@@ -241,66 +372,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
         counters.forEach((counter) => counterObserver.observe(counter));
     }
-
-    const galleries = Array.from(document.querySelectorAll("[data-gallery]"));
-
-    galleries.forEach((gallery) => {
-        const slides = Array.from(gallery.querySelectorAll("[data-gallery-slide]"));
-        const tabs = Array.from(gallery.querySelectorAll("[data-gallery-go]"));
-
-        if (!slides.length || !tabs.length) {
-            return;
-        }
-
-        let activeIndex = slides.findIndex((slide) => !slide.hasAttribute("hidden"));
-        if (activeIndex < 0) {
-            activeIndex = 0;
-        }
-
-        const updateGallery = (index) => {
-            activeIndex = (index + slides.length) % slides.length;
-
-            slides.forEach((slide, slideIndex) => {
-                const isActive = slideIndex === activeIndex;
-                slide.classList.toggle("is-active", isActive);
-                slide.hidden = !isActive;
-                slide.setAttribute("aria-hidden", String(!isActive));
-                slide.setAttribute("tabindex", isActive ? "0" : "-1");
-            });
-
-            tabs.forEach((tab, tabIndex) => {
-                const isActive = tabIndex === activeIndex;
-                tab.classList.toggle("is-active", isActive);
-                tab.setAttribute("aria-selected", String(isActive));
-                tab.setAttribute("tabindex", isActive ? "0" : "-1");
-            });
-        };
-
-        tabs.forEach((tab, tabIndex) => {
-            tab.addEventListener("click", () => updateGallery(tabIndex));
-            tab.addEventListener("keydown", (event) => {
-                if (event.key === "ArrowRight") {
-                    event.preventDefault();
-                    updateGallery(tabIndex + 1);
-                    tabs[(tabIndex + 1) % tabs.length]?.focus();
-                } else if (event.key === "ArrowLeft") {
-                    event.preventDefault();
-                    updateGallery(tabIndex - 1);
-                    tabs[(tabIndex - 1 + tabs.length) % tabs.length]?.focus();
-                } else if (event.key === "Home") {
-                    event.preventDefault();
-                    updateGallery(0);
-                    tabs[0]?.focus();
-                } else if (event.key === "End") {
-                    event.preventDefault();
-                    updateGallery(tabs.length - 1);
-                    tabs[tabs.length - 1]?.focus();
-                }
-            });
-        });
-
-        updateGallery(activeIndex);
-    });
 
     const currentYear = document.getElementById("current-year");
     if (currentYear) {
@@ -466,10 +537,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 filterBtns.forEach((b) => {
                     b.classList.remove("is-active");
-                    b.setAttribute("aria-selected", "false");
+                    b.setAttribute("aria-pressed", "false");
                 });
                 btn.classList.add("is-active");
-                btn.setAttribute("aria-selected", "true");
+                btn.setAttribute("aria-pressed", "true");
 
                 projectCards.forEach((card) => {
                     const categories = card.getAttribute("data-category") || "";
