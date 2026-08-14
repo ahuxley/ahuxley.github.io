@@ -235,15 +235,29 @@
                     <div class="project-screen">
                         <div class="project-screen-bar"></div>
                         <div class="project-stage project-cardmap-stage">
-                            <p class="project-cardmap-kicker">CardMap workflow</p>
-                            <ul class="project-cardmap-steps" aria-label="CardMap core workflow">
-                                <li>Store inventory is collected from supported retailer sources on scheduled runs.</li>
-                                <li>Raw listings are normalized (name, condition, finish, quantity, price).</li>
-                                <li>Cleaned records are upserted to Supabase/Postgres and search views are refreshed.</li>
-                                <li>Users search by card name plus ZIP/GPS and radius in the CardMap app.</li>
-                                <li>Search endpoints return filtered local results ranked by relevance and distance.</li>
-                                <li>The UI presents offers with store context through list, directory, and map views.</li>
-                            </ul>
+                            <p class="project-cardmap-kicker">Search Architecture</p>
+
+                            <div class="pipeline-flow-container">
+                                <div class="pipeline-flow-title">Query Path</div>
+                                <div class="pipeline-flow-steps">
+                                    <div class="pipeline-step-box">
+                                        <strong>1. Input</strong>
+                                        <span>Card name + ZIP/GPS</span>
+                                    </div>
+                                    <div class="pipeline-step-box">
+                                        <strong>2. Match</strong>
+                                        <span>Full-text + trigram</span>
+                                    </div>
+                                    <div class="pipeline-step-box">
+                                        <strong>3. Filter</strong>
+                                        <span>PostGIS radius</span>
+                                    </div>
+                                    <div class="pipeline-step-box">
+                                        <strong>4. Results</strong>
+                                        <span>List, map, directory</span>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="project-ui-chip-row" aria-label="CardMap technologies">
                                 <div class="project-ui-chip">React + Vite</div>
                                 <div class="project-ui-chip">Supabase</div>
@@ -257,7 +271,7 @@
                 <div class="project-copy">
                     <div class="project-meta-row">
                         <p class="project-label">Project</p>
-                        <p class="project-status-pill">Work in Progress</p>
+                        <p class="project-status-pill">Personal Project</p>
                     </div>
                     <h3>CardMap</h3>
                     <p class="project-summary">
@@ -293,12 +307,29 @@
                     <div class="project-screen">
                         <div class="project-screen-bar"></div>
                         <div class="project-stage project-cardmap-stage">
-                            <p class="project-cardmap-kicker">CardMap data pipeline</p>
-                            <ul class="project-cardmap-steps" aria-label="CardMap scraper workflow">
-                                <li>Scrape BinderPOS and TCGplayer Pro stores for live inventory data.</li>
-                                <li>Normalize card names, condition, foil state, quantity, and pricing.</li>
-                                <li>Upsert to Supabase and refresh search listings used by CardMap queries.</li>
-                            </ul>
+                            <p class="project-cardmap-kicker">Ingestion Pipeline</p>
+
+                            <div class="pipeline-flow-container">
+                                <div class="pipeline-flow-title">Scheduled Run</div>
+                                <div class="pipeline-flow-steps">
+                                    <div class="pipeline-step-box">
+                                        <strong>1. Sources</strong>
+                                        <span>BinderPOS &amp; TCGplayer Pro</span>
+                                    </div>
+                                    <div class="pipeline-step-box">
+                                        <strong>2. Normalize</strong>
+                                        <span>Name, condition, price</span>
+                                    </div>
+                                    <div class="pipeline-step-box">
+                                        <strong>3. Upsert</strong>
+                                        <span>Supabase / Postgres</span>
+                                    </div>
+                                    <div class="pipeline-step-box">
+                                        <strong>4. Publish</strong>
+                                        <span>Refresh search data</span>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="project-ui-chip-row" aria-label="Scraper technologies">
                                 <div class="project-ui-chip">Python</div>
                                 <div class="project-ui-chip">ThreadPoolExecutor</div>
@@ -469,7 +500,7 @@
                         <p class="experience-period">May 2026 - August 2026</p>
                         <h3>Infrastructure Monitoring Pipeline &amp; Power BI Reporting</h3>
                         <p>
-                            Owned the infrastructure monitoring pipeline end-to-end, from raw API ingestion through to the Power BI reporting layer stakeholders use daily.
+                            Owned the infrastructure monitoring pipeline end-to-end, from raw API ingestion through to the Power BI reporting layer used daily by the IT team.
                         </p>
                         <ul class="experience-points">
                             <li>Engineered an ETL pipeline integrating Zabbix and Service Desk Plus REST APIs into SQL Server, including schema design to flatten nested JSON data for reporting</li>

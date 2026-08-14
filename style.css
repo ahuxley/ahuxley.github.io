@@ -612,23 +612,6 @@ main {
     text-transform: uppercase;
 }
 
-.project-cardmap-steps {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: grid;
-    gap: 0.6rem;
-}
-
-.project-cardmap-steps li {
-    border: 1px solid rgba(255, 248, 240, 0.16);
-    background: rgba(255, 248, 240, 0.08);
-    border-radius: 14px;
-    padding: 0.7rem 0.8rem;
-    color: #fff8f0;
-    line-height: 1.45;
-}
-
 .project-ui-chip {
     padding: 0.48rem 0.8rem;
     border-radius: 999px;
@@ -1336,7 +1319,10 @@ main {
 }
 
 /* Pipeline Architecture Visualizer */
+/* The parent stage sets justify-items:start, which would otherwise shrink this
+   to content width and strand the steps in a narrow column. */
 .pipeline-flow-container {
+    width: 100%;
     background: rgba(255, 255, 255, 0.06);
     border: 1px dashed rgba(255, 255, 255, 0.22);
     border-radius: var(--radius-md);
@@ -1354,11 +1340,22 @@ main {
     font-weight: 600;
 }
 
+/* Fixed 2x2 rather than auto-fit: the panels vary in width, and auto-fit lands
+   on three columns at several of them, stranding the fourth step on its own
+   row. Equal height keeps the four boxes reading as one block. */
 .pipeline-flow-steps {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 0.5rem;
-    align-items: center;
+    align-items: stretch;
+}
+
+/* Kept directly after the base rule: the shared 640px block lives earlier in
+   this file, so an override placed there would lose the cascade. */
+@media (max-width: 640px) {
+    .pipeline-flow-steps {
+        grid-template-columns: 1fr;
+    }
 }
 
 .pipeline-step-box {
