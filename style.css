@@ -739,10 +739,16 @@ main {
     grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
-/* Cards size to their own content; without this a trimmed card is stretched to
-   the tallest in its row and renders as a mostly-empty box. */
+/* Two columns rather than three: the two comparable roles pair up and stay
+   equal height, while the featured and early-career entries span the full
+   width. A short card alone on its own row reads as deliberate; the same card
+   stranded beside two tall ones reads as broken. */
 .experience-grid {
-    align-items: start;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.experience-card--compact {
+    grid-column: 1 / -1;
 }
 
 .experience-card {
