@@ -90,27 +90,27 @@ function initIntroPreloader() {
     };
 
     // "raw" is left static (readable) until the status line has fully faded in
-    // (line 4 finishes revealing at ~1.3s) before cycling starts.
+    // (line 4 finishes revealing at ~0.85s) before cycling starts.
     timers.push(window.setTimeout(() => {
         statusInterval = window.setInterval(() => {
             statusIndex = (statusIndex + 1) % statusStates.length;
             if (statusEl) {
                 statusEl.textContent = statusStates[statusIndex];
             }
-        }, 650);
-    }, 1300));
+        }, 400);
+    }, 900));
 
     timers.push(window.setTimeout(() => {
         if (jsonEl) {
             jsonEl.classList.add("is-pulsing");
         }
-    }, 2000));
+    }, 1100));
 
     timers.push(window.setTimeout(() => {
         if (jsonEl) {
             jsonEl.classList.remove("is-pulsing");
         }
-    }, 2250));
+    }, 1300));
 
     timers.push(window.setTimeout(() => {
         if (statusInterval) {
@@ -121,9 +121,10 @@ function initIntroPreloader() {
         }
         swapKickerText("Formatting for humans");
         overlay.classList.add("is-transforming");
-    }, 2300));
+    }, 1350));
 
-    timers.push(window.setTimeout(finish, 3900));
+    // Leaves ~250ms to register the resolved name once its reveal completes (~1.95s).
+    timers.push(window.setTimeout(finish, 2200));
 }
 
 initIntroPreloader();
