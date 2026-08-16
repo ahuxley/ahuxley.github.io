@@ -1492,6 +1492,21 @@ main {
 .kpi-note--ok { color: #8fe0c2; }
 .kpi-note--warn { color: #ffc9a8; }
 
+/* Repeated inside every panel so the disclaimer survives a tab switch or a
+   screenshot of a single panel, where the figure caption would be lost. */
+.mock-badge {
+    margin: 0 0 0.8rem;
+    padding: 0.4rem 0.7rem;
+    border-radius: var(--radius-sm);
+    border: 1px solid rgba(255, 201, 168, 0.45);
+    background: rgba(226, 114, 91, 0.16);
+    color: #ffd9c4;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.66rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
 .mock-block-title {
     margin: 0 0 0.55rem;
     font-family: "IBM Plex Mono", monospace;

@@ -235,8 +235,8 @@
 
                 <figure class="dashboard-mock">
                     <figcaption class="dashboard-mock-head">
-                        <span class="dashboard-mock-title">Report layout &amp; measures</span>
-                        <span class="dashboard-mock-note">Representative layout using the report's real pages and DAX measure names. <strong>All figures below are synthetic</strong> &mdash; the production report runs on DirectQuery against internal systems and cannot be shared publicly.</span>
+                        <span class="dashboard-mock-title">Sample layout &mdash; synthetic data</span>
+                        <span class="dashboard-mock-note"><strong>Every number, name and trend below is invented for this demo &mdash; none of it is real output.</strong> The page names and most KPI labels come from the real report; the production version runs on DirectQuery against internal systems and cannot be published.</span>
                     </figcaption>
 
                     <div class="dashboard-mock-tabs" role="group" aria-label="Report pages">
@@ -247,6 +247,7 @@
 
                     <div class="dashboard-mock-body">
                         <div class="dashboard-panel is-active" data-panel-id="health">
+                            <p class="mock-badge">Sample data &mdash; illustrative layout, not real results</p>
                             <div class="kpi-row">
                                 <div class="kpi"><span class="kpi-label">Host Availability %</span><span class="kpi-value">97.4%</span><span class="kpi-note kpi-note--ok">Within target</span></div>
                                 <div class="kpi"><span class="kpi-label">Active Problems</span><span class="kpi-value">23</span><span class="kpi-note">8 actionable</span></div>
@@ -260,13 +261,14 @@
                                 <li><span class="sev-name">Average</span><span class="sev-bar"><i class="sev-fill sev-fill--a" style="width:39%"></i></span><span class="sev-val">9</span></li>
                                 <li><span class="sev-name">Warning</span><span class="sev-bar"><i class="sev-fill sev-fill--w" style="width:52%"></i></span><span class="sev-val">12</span></li>
                             </ul>
-                            <p class="mock-foot">Zabbix data as of 14:05 &middot; refreshed hourly</p>
+                            <p class="mock-foot">Sample values &middot; not from the production report</p>
                         </div>
 
                         <div class="dashboard-panel" data-panel-id="desk" hidden>
+                            <p class="mock-badge">Sample data &mdash; illustrative layout, not real results</p>
                             <div class="kpi-row">
                                 <div class="kpi"><span class="kpi-label">SLA Compliance %</span><span class="kpi-value">92.6%</span><span class="kpi-note kpi-note--ok">On target</span></div>
-                                <div class="kpi"><span class="kpi-label">Mean Time To Resolve</span><span class="kpi-value">18.4h</span><span class="kpi-note">&minus;2.1h MoM</span></div>
+                                <div class="kpi"><span class="kpi-label">Mean Time To Resolve</span><span class="kpi-value">18.4h</span><span class="kpi-note">sample trend</span></div>
                                 <div class="kpi"><span class="kpi-label">Open Tickets</span><span class="kpi-value">64</span><span class="kpi-note">9 unassigned</span></div>
                                 <div class="kpi"><span class="kpi-label">Overdue Tickets</span><span class="kpi-value">7</span><span class="kpi-note kpi-note--warn">&#9888; Past SLA</span></div>
                             </div>
@@ -279,10 +281,11 @@
                                 <li><i class="trend-bar" style="height:66%"></i><i class="trend-bar trend-bar--alt" style="height:72%"></i><span>Jul</span></li>
                                 <li><i class="trend-bar" style="height:85%"></i><i class="trend-bar trend-bar--alt" style="height:80%"></i><span>Aug</span></li>
                             </ul>
-                            <p class="mock-foot">Service Desk data as of 13:40 &middot; opened / resolved</p>
+                            <p class="mock-foot">Sample values &middot; opened vs resolved, not from the production report</p>
                         </div>
 
                         <div class="dashboard-panel" data-panel-id="board" hidden>
+                            <p class="mock-badge">Sample data &mdash; illustrative layout, not real results</p>
                             <p class="mock-block-title">Technician throughput</p>
                             <div class="mock-table-wrap">
                                 <table class="mock-table">
@@ -297,7 +300,7 @@
                                     </tbody>
                                 </table>
                             </div>
-                            <p class="mock-foot">Names anonymized &middot; ranked by tickets closed in period</p>
+                            <p class="mock-foot">Placeholder rows &middot; not real technicians or real ticket counts</p>
                         </div>
                     </div>
                 </figure>
