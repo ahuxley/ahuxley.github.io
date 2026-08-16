@@ -232,6 +232,75 @@
                         <li>Hyper-V</li>
                     </ul>
                 </div>
+
+                <figure class="dashboard-mock">
+                    <figcaption class="dashboard-mock-head">
+                        <span class="dashboard-mock-title">Report layout &amp; measures</span>
+                        <span class="dashboard-mock-note">Representative layout using the report's real pages and DAX measure names. <strong>All figures below are synthetic</strong> &mdash; the production report runs on DirectQuery against internal systems and cannot be shared publicly.</span>
+                    </figcaption>
+
+                    <div class="dashboard-mock-tabs" role="group" aria-label="Report pages">
+                        <button class="dashboard-mock-tab is-active" type="button" data-panel="health" aria-pressed="true">Monitoring Health</button>
+                        <button class="dashboard-mock-tab" type="button" data-panel="desk" aria-pressed="false">Service Desk</button>
+                        <button class="dashboard-mock-tab" type="button" data-panel="board" aria-pressed="false">Leaderboard</button>
+                    </div>
+
+                    <div class="dashboard-mock-body">
+                        <div class="dashboard-panel is-active" data-panel-id="health">
+                            <div class="kpi-row">
+                                <div class="kpi"><span class="kpi-label">Host Availability %</span><span class="kpi-value">97.4%</span><span class="kpi-note kpi-note--ok">Within target</span></div>
+                                <div class="kpi"><span class="kpi-label">Active Problems</span><span class="kpi-value">23</span><span class="kpi-note">8 actionable</span></div>
+                                <div class="kpi"><span class="kpi-label">Unavailable Hosts</span><span class="kpi-value">3</span><span class="kpi-note kpi-note--warn">&#9888; Escalate now</span></div>
+                                <div class="kpi"><span class="kpi-label">Coverage Score</span><span class="kpi-value">88.2</span><span class="kpi-note">12 stale items</span></div>
+                            </div>
+                            <p class="mock-block-title">Active problems by severity</p>
+                            <ul class="sev-list">
+                                <li><span class="sev-name">Disaster</span><span class="sev-bar"><i class="sev-fill sev-fill--d" style="width:8%"></i></span><span class="sev-val">1</span></li>
+                                <li><span class="sev-name">High</span><span class="sev-bar"><i class="sev-fill sev-fill--h" style="width:26%"></i></span><span class="sev-val">6</span></li>
+                                <li><span class="sev-name">Average</span><span class="sev-bar"><i class="sev-fill sev-fill--a" style="width:39%"></i></span><span class="sev-val">9</span></li>
+                                <li><span class="sev-name">Warning</span><span class="sev-bar"><i class="sev-fill sev-fill--w" style="width:52%"></i></span><span class="sev-val">12</span></li>
+                            </ul>
+                            <p class="mock-foot">Zabbix data as of 14:05 &middot; refreshed hourly</p>
+                        </div>
+
+                        <div class="dashboard-panel" data-panel-id="desk" hidden>
+                            <div class="kpi-row">
+                                <div class="kpi"><span class="kpi-label">SLA Compliance %</span><span class="kpi-value">92.6%</span><span class="kpi-note kpi-note--ok">On target</span></div>
+                                <div class="kpi"><span class="kpi-label">Mean Time To Resolve</span><span class="kpi-value">18.4h</span><span class="kpi-note">&minus;2.1h MoM</span></div>
+                                <div class="kpi"><span class="kpi-label">Open Tickets</span><span class="kpi-value">64</span><span class="kpi-note">9 unassigned</span></div>
+                                <div class="kpi"><span class="kpi-label">Overdue Tickets</span><span class="kpi-value">7</span><span class="kpi-note kpi-note--warn">&#9888; Past SLA</span></div>
+                            </div>
+                            <p class="mock-block-title">Requests opened vs resolved</p>
+                            <ul class="trend-list" aria-label="Six month trend, synthetic values">
+                                <li><i class="trend-bar" style="height:44%"></i><i class="trend-bar trend-bar--alt" style="height:38%"></i><span>Mar</span></li>
+                                <li><i class="trend-bar" style="height:62%"></i><i class="trend-bar trend-bar--alt" style="height:55%"></i><span>Apr</span></li>
+                                <li><i class="trend-bar" style="height:53%"></i><i class="trend-bar trend-bar--alt" style="height:58%"></i><span>May</span></li>
+                                <li><i class="trend-bar" style="height:78%"></i><i class="trend-bar trend-bar--alt" style="height:70%"></i><span>Jun</span></li>
+                                <li><i class="trend-bar" style="height:66%"></i><i class="trend-bar trend-bar--alt" style="height:72%"></i><span>Jul</span></li>
+                                <li><i class="trend-bar" style="height:85%"></i><i class="trend-bar trend-bar--alt" style="height:80%"></i><span>Aug</span></li>
+                            </ul>
+                            <p class="mock-foot">Service Desk data as of 13:40 &middot; opened / resolved</p>
+                        </div>
+
+                        <div class="dashboard-panel" data-panel-id="board" hidden>
+                            <p class="mock-block-title">Technician throughput</p>
+                            <div class="mock-table-wrap">
+                                <table class="mock-table">
+                                    <thead>
+                                        <tr><th scope="col">Technician</th><th scope="col">Closed</th><th scope="col">Avg close</th><th scope="col">Open</th></tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr><td>Technician A</td><td>128</td><td>11.2h</td><td>6</td></tr>
+                                        <tr><td>Technician B</td><td>117</td><td>14.8h</td><td>9</td></tr>
+                                        <tr><td>Technician C</td><td>96</td><td>19.5h</td><td>14</td></tr>
+                                        <tr><td>Technician D</td><td>73</td><td>26.1h</td><td>18 <span class="mock-flag">&#9888; Needs attention</span></td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <p class="mock-foot">Names anonymized &middot; ranked by tickets closed in period</p>
+                        </div>
+                    </div>
+                </figure>
             </article>
 
             <article class="project-feature project-feature-secondary" data-reveal="up" data-category="fullstack">

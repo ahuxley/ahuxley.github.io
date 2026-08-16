@@ -527,6 +527,30 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+    /* Dashboard mock page switcher */
+    const mockTabs = document.querySelectorAll(".dashboard-mock-tab");
+    const mockPanels = document.querySelectorAll(".dashboard-panel");
+
+    if (mockTabs.length && mockPanels.length) {
+        mockTabs.forEach((tab) => {
+            tab.addEventListener("click", () => {
+                const target = tab.getAttribute("data-panel");
+
+                mockTabs.forEach((t) => {
+                    const isActive = t === tab;
+                    t.classList.toggle("is-active", isActive);
+                    t.setAttribute("aria-pressed", String(isActive));
+                });
+
+                mockPanels.forEach((panel) => {
+                    const isActive = panel.getAttribute("data-panel-id") === target;
+                    panel.classList.toggle("is-active", isActive);
+                    panel.hidden = !isActive;
+                });
+            });
+        });
+    }
+
     /* Project Category Filter Tabs */
     const filterBtns = document.querySelectorAll(".project-filter-btn");
     const projectCards = document.querySelectorAll(".project-feature");
