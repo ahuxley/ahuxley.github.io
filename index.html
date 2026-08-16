@@ -184,7 +184,7 @@
                                     </div>
                                     <div class="pipeline-step-box">
                                         <strong>4. Power BI</strong>
-                                        <span>3-Page Dashboard</span>
+                                        <span>8-page report, 106 measures</span>
                                     </div>
                                 </div>
                             </div>
@@ -209,17 +209,21 @@
                         Architected an automated end-to-end ETL pipeline (<code>hawkeye_etl</code>) that pulls infrastructure and ticketing data from Zabbix and Service Desk Plus REST APIs into a SQL Server backend, flattening complex nested JSON into relational reporting tables.
                     </p>
                     <p class="project-summary">
-                        Designed and built a multi-page Power BI report featuring drillthrough navigation, dropdown slicers, conditional formatting for severity tiers, and SLA availability metrics. Planned and sized supporting infrastructure on Hyper-V VMs running Windows Server and SQL Server 2025.
+                        On top of it sits an 8-page Power BI report &mdash; Monitoring Health, Hosts, Zabbix, Service Desk, Service Risk &amp; Trends, Capacity, Bandwidth, and a technician Leaderboard &mdash; built on a composite DirectQuery model of 20 tables and 26 relationships.
                     </p>
                     <ul class="project-highlights">
                         <li><strong>Automated Telemetry Ingestion</strong>: Built <code>hawkeye_etl</code> pulling Zabbix &amp; Service Desk Plus APIs into SQL Server, eliminating manual IT auditing across 100+ host environments</li>
-                        <li><strong>Interactive SLA Dashboarding</strong>: Designed 3-page Power BI report (Overview, Host Detail, Problem Trends) with DAX, Power Query, &amp; SLA availability metrics</li>
+                        <li><strong>106 DAX Measures</strong>: Modeled operational KPIs including SLA Compliance %, Mean Time To Resolve, Host Availability %, and Monitoring Coverage Score, organized into display folders by audience</li>
+                        <li><strong>Pipeline Observability</strong>: Surfaced the pipeline's own health in-report via ETL Run Log and contract-status tables, alongside data-freshness indicators on each source</li>
+                        <li><strong>Accessible Alerting</strong>: Paired every conditional-format color with a text or glyph label, so severity is never communicated by color alone</li>
                         <li><strong>Production Infrastructure</strong>: Sized and deployed Hyper-V VM hosting Windows Server &amp; SQL Server 2025 for production pipeline execution</li>
                     </ul>
                     <ul class="tag-list project-tags">
                         <li>Power BI</li>
                         <li>DAX</li>
                         <li>Power Query</li>
+                        <li>DirectQuery</li>
+                        <li>Data Modeling</li>
                         <li>SQL Server</li>
                         <li>ETL Pipeline</li>
                         <li>REST APIs</li>
@@ -504,7 +508,7 @@
                         </p>
                         <ul class="experience-points">
                             <li>Engineered an ETL pipeline integrating Zabbix and Service Desk Plus REST APIs into SQL Server, including schema design to flatten nested JSON data for reporting</li>
-                            <li>Designed and built a multi-page Power BI infrastructure monitoring dashboard (Overview, Host Detail, Problem Trends) featuring drillthrough navigation, conditional formatting for severity tiers, and SLA availability metrics</li>
+                            <li>Designed and built an 8-page Power BI infrastructure monitoring report on a composite DirectQuery model, with 106 DAX measures covering SLA compliance, mean time to resolve, host availability, and monitoring coverage</li>
                             <li>Communicated with cross-functional teams and stakeholders to align project scope, timelines, and reporting requirements</li>
                         </ul>
                     </div>
