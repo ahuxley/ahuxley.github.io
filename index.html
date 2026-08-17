@@ -256,10 +256,10 @@
                             </div>
                             <p class="mock-block-title">Active problems by severity</p>
                             <ul class="sev-list">
-                                <li><span class="sev-name">Disaster</span><span class="sev-bar"><i class="sev-fill sev-fill--d" style="width:8%"></i></span><span class="sev-val">1</span></li>
-                                <li><span class="sev-name">High</span><span class="sev-bar"><i class="sev-fill sev-fill--h" style="width:26%"></i></span><span class="sev-val">6</span></li>
-                                <li><span class="sev-name">Average</span><span class="sev-bar"><i class="sev-fill sev-fill--a" style="width:39%"></i></span><span class="sev-val">9</span></li>
-                                <li><span class="sev-name">Warning</span><span class="sev-bar"><i class="sev-fill sev-fill--w" style="width:52%"></i></span><span class="sev-val">12</span></li>
+                                <li><span class="sev-name">Disaster</span><span class="sev-bar"><i class="sev-fill sev-fill--d" style="width:8.3%"></i></span><span class="sev-val">1</span></li>
+                                <li><span class="sev-name">High</span><span class="sev-bar"><i class="sev-fill sev-fill--h" style="width:50%"></i></span><span class="sev-val">6</span></li>
+                                <li><span class="sev-name">Average</span><span class="sev-bar"><i class="sev-fill sev-fill--a" style="width:75%"></i></span><span class="sev-val">9</span></li>
+                                <li><span class="sev-name">Warning</span><span class="sev-bar"><i class="sev-fill sev-fill--w" style="width:100%"></i></span><span class="sev-val">12</span></li>
                             </ul>
                             <p class="mock-foot">Sample values &middot; not from the production report</p>
                         </div>
@@ -272,31 +272,51 @@
                                 <div class="kpi"><span class="kpi-label">Open Tickets</span><span class="kpi-value">64</span><span class="kpi-note">9 unassigned</span></div>
                                 <div class="kpi"><span class="kpi-label">Overdue Tickets</span><span class="kpi-value">7</span><span class="kpi-note kpi-note--warn">&#9888; Past SLA</span></div>
                             </div>
-                            <p class="mock-block-title">Requests opened vs resolved</p>
-                            <ul class="trend-list" aria-label="Six month trend, synthetic values">
-                                <li><i class="trend-bar" style="height:44%"></i><i class="trend-bar trend-bar--alt" style="height:38%"></i><span>Mar</span></li>
-                                <li><i class="trend-bar" style="height:62%"></i><i class="trend-bar trend-bar--alt" style="height:55%"></i><span>Apr</span></li>
-                                <li><i class="trend-bar" style="height:53%"></i><i class="trend-bar trend-bar--alt" style="height:58%"></i><span>May</span></li>
-                                <li><i class="trend-bar" style="height:78%"></i><i class="trend-bar trend-bar--alt" style="height:70%"></i><span>Jun</span></li>
-                                <li><i class="trend-bar" style="height:66%"></i><i class="trend-bar trend-bar--alt" style="height:72%"></i><span>Jul</span></li>
-                                <li><i class="trend-bar" style="height:85%"></i><i class="trend-bar trend-bar--alt" style="height:80%"></i><span>Aug</span></li>
-                            </ul>
+                            <div class="mock-chart-head">
+                                <p class="mock-block-title">Requests opened vs resolved</p>
+                                <p class="mock-legend">
+                                    <span class="mock-legend-item"><i class="mock-swatch"></i>Opened</span>
+                                    <span class="mock-legend-item"><i class="mock-swatch mock-swatch--alt"></i>Resolved</span>
+                                </p>
+                            </div>
+                            <div class="trend-wrap">
+                                <ul class="trend-list" aria-label="Six month trend, sample values">
+                                    <li><i class="trend-bar" style="height:44%"></i><i class="trend-bar trend-bar--alt" style="height:38%"></i><span>Mar</span></li>
+                                    <li><i class="trend-bar" style="height:62%"></i><i class="trend-bar trend-bar--alt" style="height:55%"></i><span>Apr</span></li>
+                                    <li><i class="trend-bar" style="height:53%"></i><i class="trend-bar trend-bar--alt" style="height:58%"></i><span>May</span></li>
+                                    <li><i class="trend-bar" style="height:78%"></i><i class="trend-bar trend-bar--alt" style="height:70%"></i><span>Jun</span></li>
+                                    <li><i class="trend-bar" style="height:66%"></i><i class="trend-bar trend-bar--alt" style="height:72%"></i><span>Jul</span></li>
+                                    <li><i class="trend-bar" style="height:85%"></i><i class="trend-bar trend-bar--alt" style="height:80%"></i><span>Aug</span></li>
+                                </ul>
+                            </div>
                             <p class="mock-foot">Sample values &middot; opened vs resolved, not from the production report</p>
                         </div>
 
                         <div class="dashboard-panel" data-panel-id="board" hidden>
                             <p class="mock-badge">Sample data &mdash; illustrative layout, not real results</p>
+                            <div class="kpi-row">
+                                <div class="kpi"><span class="kpi-label">Active Technicians</span><span class="kpi-value">4</span><span class="kpi-note">in period</span></div>
+                                <div class="kpi"><span class="kpi-label">Tickets Closed</span><span class="kpi-value">414</span><span class="kpi-note">all technicians</span></div>
+                                <div class="kpi"><span class="kpi-label">Avg Close Time</span><span class="kpi-value">17.9h</span><span class="kpi-note">weighted</span></div>
+                                <div class="kpi"><span class="kpi-label">Needs Attention</span><span class="kpi-value">1</span><span class="kpi-note kpi-note--warn">&#9888; Queue &amp; age high</span></div>
+                            </div>
                             <p class="mock-block-title">Technician throughput</p>
                             <div class="mock-table-wrap">
                                 <table class="mock-table">
                                     <thead>
-                                        <tr><th scope="col">Technician</th><th scope="col">Closed</th><th scope="col">Avg close</th><th scope="col">Open</th></tr>
+                                        <tr>
+                                            <th scope="col">Technician</th>
+                                            <th scope="col" class="num">Closed</th>
+                                            <th scope="col" class="num">Avg close</th>
+                                            <th scope="col" class="num">Open</th>
+                                            <th scope="col">Status</th>
+                                        </tr>
                                     </thead>
                                     <tbody>
-                                        <tr><td>Technician A</td><td>128</td><td>11.2h</td><td>6</td></tr>
-                                        <tr><td>Technician B</td><td>117</td><td>14.8h</td><td>9</td></tr>
-                                        <tr><td>Technician C</td><td>96</td><td>19.5h</td><td>14</td></tr>
-                                        <tr><td>Technician D</td><td>73</td><td>26.1h</td><td>18 <span class="mock-flag">&#9888; Needs attention</span></td></tr>
+                                        <tr><td>T&#8209;104</td><td class="num">128</td><td class="num">11.2h</td><td class="num">6</td><td></td></tr>
+                                        <tr><td>T&#8209;118</td><td class="num">117</td><td class="num">14.8h</td><td class="num">9</td><td></td></tr>
+                                        <tr><td>T&#8209;127</td><td class="num">96</td><td class="num">19.5h</td><td class="num">14</td><td></td></tr>
+                                        <tr><td>T&#8209;133</td><td class="num">73</td><td class="num">26.1h</td><td class="num">18</td><td><span class="mock-flag">&#9888; Needs attention</span></td></tr>
                                     </tbody>
                                 </table>
                             </div>
