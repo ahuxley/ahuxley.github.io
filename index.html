@@ -22,6 +22,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Sora:wght@400;600;700;800&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="design-tokens.css">
     <link rel="stylesheet" href="style.css">
     <noscript><style>[data-reveal] { opacity: 1 !important; transform: none !important; }</style></noscript>
     <script type="application/ld+json">
@@ -247,13 +248,13 @@
                     </figcaption>
 
                     <div class="dashboard-mock-tabs" role="group" aria-label="Report pages">
-                        <button class="dashboard-mock-tab is-active" type="button" data-panel="health" aria-pressed="true">Monitoring Health</button>
-                        <button class="dashboard-mock-tab" type="button" data-panel="desk" aria-pressed="false">Service Desk</button>
-                        <button class="dashboard-mock-tab" type="button" data-panel="board" aria-pressed="false">Leaderboard</button>
+                        <button class="dashboard-mock-tab is-active" type="button" data-panel="health" aria-pressed="true" aria-controls="mock-panel-health">Monitoring Health</button>
+                        <button class="dashboard-mock-tab" type="button" data-panel="desk" aria-pressed="false" aria-controls="mock-panel-desk">Service Desk</button>
+                        <button class="dashboard-mock-tab" type="button" data-panel="board" aria-pressed="false" aria-controls="mock-panel-board">Leaderboard</button>
                     </div>
 
                     <div class="dashboard-mock-body">
-                        <div class="dashboard-panel is-active" data-panel-id="health">
+                        <div class="dashboard-panel is-active" id="mock-panel-health" data-panel-id="health" role="group" aria-label="Monitoring Health, sample data">
                             <p class="mock-badge">Sample data &mdash; illustrative layout, not real results</p>
                             <div class="kpi-row">
                                 <div class="kpi"><span class="kpi-label">Host Availability %</span><span class="kpi-value">97.4%</span><span class="kpi-note kpi-note--ok">Within target</span></div>
@@ -271,7 +272,7 @@
                             <p class="mock-foot">Sample values &middot; not from the production report</p>
                         </div>
 
-                        <div class="dashboard-panel" data-panel-id="desk" hidden>
+                        <div class="dashboard-panel" id="mock-panel-desk" data-panel-id="desk" role="group" aria-label="Service Desk, sample data" hidden>
                             <p class="mock-badge">Sample data &mdash; illustrative layout, not real results</p>
                             <div class="kpi-row">
                                 <div class="kpi"><span class="kpi-label">SLA Compliance %</span><span class="kpi-value">92.6%</span><span class="kpi-note kpi-note--ok">On target</span></div>
@@ -299,7 +300,7 @@
                             <p class="mock-foot">Sample values &middot; opened vs resolved, not from the production report</p>
                         </div>
 
-                        <div class="dashboard-panel" data-panel-id="board" hidden>
+                        <div class="dashboard-panel" id="mock-panel-board" data-panel-id="board" role="group" aria-label="Leaderboard, sample data" hidden>
                             <p class="mock-badge">Sample data &mdash; illustrative layout, not real results</p>
                             <div class="kpi-row">
                                 <div class="kpi"><span class="kpi-label">Active Technicians</span><span class="kpi-value">4</span><span class="kpi-note">in period</span></div>

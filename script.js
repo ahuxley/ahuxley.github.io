@@ -568,7 +568,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 btn.setAttribute("aria-pressed", "true");
 
                 projectCards.forEach((card) => {
-                    const categories = card.getAttribute("data-category") || "";
+                    // Token match, not substring: "fullstack".includes("stack")
+                    // would otherwise be a false positive.
+                    const categories = (card.getAttribute("data-category") || "").split(/\s+/);
                     if (filter === "all" || categories.includes(filter)) {
                         card.style.display = "";
                         card.removeAttribute("hidden");

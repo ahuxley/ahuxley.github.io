@@ -1,7 +1,6 @@
-@import "./design-tokens.css";
-
-/* Retain any custom variables not covered by design tokens */
-/* Existing custom variables can be redefined here if needed */
+/* design-tokens.css is loaded via its own <link> before this file. It was an
+   @import, which forced the browser to download and parse this stylesheet
+   before it could even request the tokens. */
 
 
 *,
@@ -999,7 +998,11 @@ main {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
-    .project-stage {
+    /* Excludes the cardmap stages, which set min-height:auto earlier in the
+       file and would otherwise be silently given an 18rem floor back. All
+       three stages are currently cardmap stages, so this is latent -- but it
+       is the same footgun that has bitten this stylesheet repeatedly. */
+    .project-stage:not(.project-cardmap-stage) {
         min-height: 18rem;
     }
 }
