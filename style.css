@@ -500,7 +500,7 @@ main {
     gap: 4rem;
     padding: 3.5rem;
     align-items: start;
-    margin-top: 2rem;
+    margin: 2rem auto 0;
     max-width: 68rem;
 }
 
@@ -530,11 +530,14 @@ main {
     padding: 1.45rem 1.5rem;
 }
 
+/* Capped below .section-heading h2. At 5vw this outran every section heading,
+   and between ~640-900px it outran the h1 too, making the metric numeral the
+   largest type on the page. */
 .metric-value {
     margin: 0.2rem 0;
     font-family: "Sora", sans-serif;
-    font-size: clamp(2rem, 5vw, 3rem);
-    line-height: 1;
+    font-size: clamp(1.6rem, 2.1vw, 2.1rem);
+    line-height: 1.05;
 }
 
 .metric-note {
@@ -551,8 +554,10 @@ main {
         linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(250, 246, 239, 0.92));
 }
 
+/* 20px between 600-1500px tall cards read as one squashed stack against the
+   120px section rhythm. */
 .project-feature-secondary {
-    margin-top: 1.25rem;
+    margin-top: 2.75rem;
     align-items: start;
     grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
 }
@@ -560,6 +565,17 @@ main {
 .project-visual {
     display: flex;
     align-items: stretch;
+}
+
+/* Two-column cards only: the copy column is far taller than the diagram, so
+   stretching the panel to match left ~540px of empty gradient inside the
+   largest visual on the page. Size to content and pin it alongside instead. */
+@media (min-width: 1081px) {
+    .project-visual {
+        align-self: start;
+        position: sticky;
+        top: 6.5rem;
+    }
 }
 
 .project-screen {
