@@ -161,12 +161,24 @@ main,
     font-family: "Sora", sans-serif;
     font-size: 0.98rem;
     font-weight: 700;
+    white-space: nowrap;
 }
 
 .brand-role {
     color: var(--ink-muted);
     font-size: 0.78rem;
+    white-space: nowrap;
 }
+
+/* Between ~960 and ~1150 the brand column gets squeezed and both lines wrap,
+   rendering the header as a four-line ragged stack. The role is already in
+   the page title and the hero. */
+@media (max-width: 1150px) {
+    .brand-role {
+        display: none;
+    }
+}
+
 
 .nav-links {
     list-style: none;
@@ -1040,12 +1052,12 @@ main {
         right: 1.05rem;
     }
 
+    /* Hidden rather than laid out: below this width it wraps to its own
+       full-width row, costing ~44px of a sticky header for three icons the
+       footer already carries. Kept in this block, which sits after the base
+       rule -- an override placed earlier would lose the cascade. */
     .nav-social-links {
-        flex-basis: 100%;
-        justify-content: flex-end;
-        margin-left: 0;
-        padding-left: 0;
-        border-left: none;
+        display: none;
     }
 
     .nav-links {
@@ -1083,7 +1095,9 @@ main {
 
 @media (max-width: 640px) {
     .section-shell {
-        width: min(calc(100% - 1rem), var(--content-max));
+        /* Was 1rem, i.e. an 8px gutter on phones against 16px on tablet --
+           the smallest screen had the tightest margin. */
+        width: min(calc(100% - 2rem), var(--content-max));
     }
 
     .section-stack {
@@ -1376,13 +1390,15 @@ main {
 }
 
 .pipeline-step-box {
-    background: #fff;
+    /* Token surface rather than pure white, which reads cold in this warm
+       cream system; the previous black drop shadow did nothing on a dark
+       navy panel except muddy the edge. */
+    background: var(--color-surface-strong);
     border: 1px solid var(--line);
     border-radius: var(--radius-sm);
     padding: 0.6rem 0.75rem;
     font-size: 0.78rem;
     text-align: center;
-    box-shadow: var(--shadow-sm);
 }
 
 .pipeline-step-box strong {
